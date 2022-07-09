@@ -1,0 +1,181 @@
+<html>
+    
+<head style="text-align: center;">
+        <title>日历&nbsp;</title>
+</head>
+<body>
+
+    <table width="&nbsp;00%" cellpadding="0" cellspacing="0" border="&nbsp;">
+        <thead >
+            <tr>
+                <td   colspan="7" class="head1" >日历</td>
+              
+            </tr>
+            <tr>
+                <td colspan="7"  class="head2">
+                    <t id="year">1992</t> 年 <t id="month"></t> 月<t id="day"></t>日
+                </td>
+            </tr>
+            <tr >
+                <th>周日</th>
+                <th>周一</th>
+                <th>周二</th>
+                <th>周三</th>
+                <th>周四</th>
+                <th>周五</th>
+                <th>周六</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td >
+                    <t id="t11">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t12">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t13">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t14">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t15">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t16">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t17">&nbsp;</t>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <t id="t21">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t22">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t23">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t24">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t25">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t26">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t27">&nbsp;</t>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <t id="t31">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t32">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t33">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t34">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t35">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t36">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t37">&nbsp;</t>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <t id="t41">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t42">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t43">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t44">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t45">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t46">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t47">&nbsp;</t>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <t id="t51">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t52">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t53">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t54">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t55">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t56">&nbsp;</t>
+                </td>
+                <td>
+                    <t id="t57">&nbsp;</t>
+                </td>
+            </tr>
+          
+        </tbody>
+      
+    </table>
+    <t id="log"></t>
+</body> 
+   
+<style>
+    .head1{
+        text-align: center;
+        background-color: antiquewhite;
+    
+    }
+    .head2{
+        text-align: center;
+        
+    }
+</style>
+<script>
+    const today=new Date();
+document.getElementById("year").innerHTML = today.getFullYear();
+document.getElementById("month").innerHTML = today.getMonth() + 1 ;
+document.getElementById("day").innerHTML = today.getDate();
+var firstday=new Date();
+firstday.setDate(1);
+document.getElementById("log").innerHTML = firstday.getDay();
+var firstdayindex=firstday.getDay();
+for(int j =0;i)
+
+for(i = 0; i<7; i++) {
+    if(i==firstdayindex){
+
+    }
+}
+
+    </script>
+</html>
