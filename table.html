@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <table class="tablemain" width="100%">
+    <table class="table">
         <thead >
             <tr>
                 <td   colspan="7" class="head1" >日历</td>
@@ -26,8 +26,8 @@
                 <th>周六</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
+        <tbody width="100%">
+            <tr >
                 <td id = "box" colspan="7" >
 
                 </td>
@@ -47,7 +47,7 @@
         text-align: center;
         
     }
-    .tablemain{
+    table{
         width:"100%" ;
         cellpadding:"0" ;
         cellspacing:"0" ;
@@ -65,9 +65,9 @@ function create(tagName) {
 
 function caltable(daytime) {
     var ctable= create('table');
-    
+    ctable.style="table";
     ctable.border="1";
-    const myDay= daytime;
+    const myDay= daytime.getDate();
     daytime.setDate(0);
     const lastday=daytime.getDate();
     daytime.setDate(1);
@@ -84,6 +84,9 @@ function caltable(daytime) {
             }
             if (startwrite && writeday<=lastday) {
                 oTd.innerHTML=writeday.toString();
+                if(writeday==myDay) {
+                    oTd.style.backgroundColor="antiquewhite";
+                }
                 writeday++;
             }
             oTr.appendChild(oTd);
@@ -105,4 +108,8 @@ $("log").innerHTML = today.getDay();
 var x=caltable(new Date());
 
     </script>
+
+
+
+
 </html>
