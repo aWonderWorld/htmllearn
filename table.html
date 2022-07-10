@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <table width="&nbsp;00%" cellpadding="0" cellspacing="0" border="&nbsp;">
+    <table class="tablemain" width="100%">
         <thead >
             <tr>
                 <td   colspan="7" class="head1" >日历</td>
@@ -26,127 +26,15 @@
                 <th>周六</th>
             </tr>
         </thead>
-        <tbody >
+        <tbody>
             <tr>
-                <td >
-                    <t id="t11">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t12">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t13">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t14">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t15">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t16">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t17">&nbsp;</t>
+                <td id = "box" colspan="7" >
+
                 </td>
             </tr>
-            <tr>
-                <td >
-                    <t id="t21">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t22">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t23">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t24">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t25">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t26">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t27">&nbsp;</t>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <t id="t31">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t32">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t33">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t34">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t35">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t36">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t37">&nbsp;</t>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <t id="t41">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t42">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t43">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t44">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t45">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t46">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t47">&nbsp;</t>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <t id="t51">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t52">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t53">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t54">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t55">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t56">&nbsp;</t>
-                </td>
-                <td>
-                    <t id="t57">&nbsp;</t>
-                </td>
-            </tr>
-          
         </tbody>
-      
     </table>
-    <t id="log"></t>
+ <div id="log"></div>
 </body> 
    
 <style>
@@ -159,23 +47,62 @@
         text-align: center;
         
     }
+    .tablemain{
+        width:"100%" ;
+        cellpadding:"0" ;
+        cellspacing:"0" ;
+        border:"1";
+    }
 </style>
 <script>
-    const today=new Date();
-document.getElementById("year").innerHTML = today.getFullYear();
-document.getElementById("month").innerHTML = today.getMonth() + 1 ;
-document.getElementById("day").innerHTML = today.getDate();
-var firstday=new Date();
-firstday.setDate(1);
-document.getElementById("log").innerHTML = firstday.getDay();
-var firstdayindex=firstday.getDay();
-for(int j =0;i)
-
-for(i = 0; i<7; i++) {
-    if(i==firstdayindex){
-
-    }
+function $(id) {
+    return document.getElementById(id);
 }
+
+function create(tagName) {
+    return document.createElement(tagName);
+}
+
+function caltable(daytime) {
+    var ctable= create('table');
+    
+    ctable.border="1";
+    const myDay= daytime;
+    daytime.setDate(0);
+    const lastday=daytime.getDate();
+    daytime.setDate(1);
+    const firstday=daytime;
+    var startwrite=false;
+    var writeday=1;
+
+    for(var j = 0; j < 5;j++) {
+        var oTr=create('tr');
+        for(var i=0; i< 7;i++) {
+            var oTd=create('td');
+            if(j == 0 && i==firstday.getDay()) {
+                startwrite=true;
+            }
+            if (startwrite && writeday<=lastday) {
+                oTd.innerHTML=writeday.toString();
+                writeday++;
+            }
+            oTr.appendChild(oTd);
+        }
+        ctable.appendChild(oTr);
+    }
+    $('box').appendChild(ctable);
+}
+
+
+const today=new Date();
+$('year').innerHTML = today.getFullYear();
+$("month").innerHTML = today.getMonth() + 1 ;
+$("day").innerHTML = today.getDate();
+
+$("log").innerHTML = today.getDay();
+
+
+var x=caltable(new Date());
 
     </script>
 </html>
