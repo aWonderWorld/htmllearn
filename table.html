@@ -1,14 +1,14 @@
-<html>
+<!DOCTYPE html>
     
 <head style="text-align: center;">
-        <title>日历&nbsp;</title>
+        <title>日历</title>
 </head>
 <body>
 
-    <table class="table">
+    <table id="calendertable">
         <thead >
             <tr>
-                <td   colspan="7" class="head1" >日历</td>
+                <td   colspan="7" class="head1" width="50%">日历</td>
               
             </tr>
             <tr>
@@ -26,7 +26,7 @@
                 <th>周六</th>
             </tr>
         </thead>
-        <tbody width="100%">
+        <tbody >
             <tr >
                 <td id = "box" colspan="7" >
 
@@ -34,25 +34,38 @@
             </tr>
         </tbody>
     </table>
- <div id="log"></div>
+ <!-- <div id="log"></div> -->
 </body> 
    
 <style>
+    table {
+        width:100%;
+        border:1px solid black;
+        text-align: center;
+        border-collapse: collapse;
+        /* border-spacing: 0ch; */
+        /* margin: 01; */
+        
+    }
+   th,td{
+     border: 1px solid black;
+     padding: 0;
+   }
     .head1{
         text-align: center;
         background-color: antiquewhite;
+        text-align: justify;
+        text-justify: distribute-all-lines;
+        text-align-last: justify;
+        width: 50%;
     
     }
+    
     .head2{
         text-align: center;
         
     }
-    table{
-        width:"100%" ;
-        cellpadding:"0" ;
-        cellspacing:"0" ;
-        border:"1";
-    }
+    
 </style>
 <script>
 function $(id) {
@@ -63,10 +76,13 @@ function create(tagName) {
     return document.createElement(tagName);
 }
 
-function caltable(daytime) {
-    var ctable= create('table');
-    ctable.style="table";
-    ctable.border="1";
+function caltable(daytime, ctable) {
+    
+    
+    // ctable.style="table";
+    // ctable.style.width="100%";
+    
+    // ctable.border="1";
     const myDay= daytime.getDate();
     daytime.setDate(0);
     const lastday=daytime.getDate();
@@ -93,6 +109,7 @@ function caltable(daytime) {
         }
         ctable.appendChild(oTr);
     }
+    ctable.style.border=0;
     $('box').appendChild(ctable);
 }
 
@@ -102,10 +119,10 @@ $('year').innerHTML = today.getFullYear();
 $("month").innerHTML = today.getMonth() + 1 ;
 $("day").innerHTML = today.getDate();
 
-$("log").innerHTML = today.getDay();
+// $("log").innerHTML = today.getDay();
 
 
-var x=caltable(new Date());
+var x=caltable(new Date(),$("calendertable"));
 
     </script>
 
